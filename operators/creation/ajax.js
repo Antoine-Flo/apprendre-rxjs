@@ -1,5 +1,5 @@
 // RxJS v6+
-import { ajax } from 'rxjs/ajax';
+import { ajax } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 const githubUsers = `https://api.github.com/users?per_page=2`;

@@ -1,6 +1,6 @@
 # Rxjs Operators
 
-Une références et quelques mots au sujet des opérateurs Rxjs
+Les opérateurs se classent en 8 catégories, cette classification se base sur le travail de Brian Troncone et l'excellent site <a href="https://www.learnrxjs.io/" target="blank">learn Rxjs</a>. Cette page n'est toutefois pas une simple traduction et apporte sa propre contribution à la documentation et à sa mise à jour (n'hésitez d'ailleurs pas à participer). Enjoy ❤
 
 ---
 
@@ -9,25 +9,20 @@ Une références et quelques mots au sujet des opérateurs Rxjs
 Ces opérateurs permettent de tout transformer en "observable". En programmation réactive, tout est flux.
 
 ### *ajax* ⭐
-.
+Comme son nom l'indique, l'opératuer ajax transorme la réponse d'une requète Ajax en flux. L'opérateur accepte un URL sous forme de chaîne de charactére ou un object pour une requète plus détaillé (avec URL, méthode, headers, body)
 
-🚨 l'opérateur ajax ne fonctionna pas avec Node, il doit s'executer grace au navigateur.
+🚨 l'opérateur ajax ne fonctionne pas avec Node, il doit s'executer grace au navigateur.
 
 ```js
 import { ajax } from 'rxjs/ajax';
-import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
 
-const obs$ = ajax(`https://api.github.com/users?per_page=5`).pipe(
-  map(userResponse => console.log('users: ', userResponse)),
-  catchError(error => {
-    console.log('error: ', error);
-    return of(error);
-  })
-);
+ajax(`https://api.github.com/users?per_page=5`).subscribe(x => console.log(x.response.fact))
+
+// Output : "The technical term for a cat’s hairball is a “bezoar.”"
 ```
 
-### create
+### *create*
+
 
 ### defer
 
